@@ -1,0 +1,81 @@
+{
+    "extractor_name": "fourvenues",
+    "version": "1.0.0",
+    "api_config": {
+      "base_url": "https://api.fourvenues.com/integrations",
+      "version": "v1"
+    },
+    "default_start_date": "2022-01-01",
+    "datasets": {
+      "events": {
+        "incremental": false,
+        "endpoint": "/events",
+        "description": "Eventos registrados en la plataforma"
+      },
+      "channels": {
+        "incremental": false,
+        "endpoint": "/channels",
+        "description": "Canales de Promocion de los eventos"
+      },
+      "payments": {
+        "incremental": false,
+        "paginated": true,
+        "endpoint": "/payments?event_id={event_id}&limit={page_size}&offset={offset}",
+        "description": "Get all the payments given a event or a date range. (Only using Fourvenues payments gateway)."
+      },
+      "lists": {
+        "incremental": false,
+        "endpoint": "/lists?event_id={event_id}",
+        "description": "Listas de precios para un evento"
+      },
+      "lists-rates": {
+        "incremental": false,
+        "endpoint": "/lists-rates?event_id={event_id}",
+        "description": "Tarifas de una lista de precios"
+      },
+      "passes": {
+        "incremental": false,
+        "endpoint": "/passes?event_id={event_id}",
+        "description": "Pases de eventos"
+      },
+      "tickets.created": {
+        "incremental": true,
+        "endpoint": "/tickets?event_id={event_id}&limit={page_size}&offset={offset}&date_field=created_at",
+        "incremental_field_from": "start_date",
+        "incremental_field_to": "end_date",
+        "description": "Get all the tickets given a event",
+        "paginated": true
+      },
+      "tickets.updated": {
+        "incremental": true,
+        "endpoint": "/tickets?event_id={event_id}&limit={page_size}&offset={offset}&date_field=updated_at",
+        "incremental_field_from": "start_date",
+        "incremental_field_to": "end_date",
+        "description": "Get all the tickets given a event",
+        "paginated": true
+      },
+      "tickets-rates": {
+        "incremental": false,
+        "endpoint": "/tickets-rates?event_id={event_id}",
+        "description": "Get all the rates of tickets given a event."
+      },
+      "users": {
+        "incremental": false,
+        "endpoint": "/users",
+        "description": "Get all the users."
+      },
+      "refunds": {
+        "incremental": false,
+        "paginated": true,
+        "endpoint": "/refunds?event_id={event_id}&limit={page_size}&offset={offset}",
+        "description": "Get all the refunds given a event or a date range. (Only using Fourvenues payments gateway)."
+      }
+    },
+    "default_params": {
+      "page_size": 100,
+      "max_retries": 3,
+      "timeout": 300,
+      "max_workers": 5,
+      "max_event_workers": 10
+    }
+}

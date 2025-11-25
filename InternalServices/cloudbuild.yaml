@@ -1,0 +1,26 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  waitFor: ["-"]
+  args:
+  - functions
+  - deploy
+  - InternalServices
+  - --runtime=python312
+  - --gen2
+  - --memory=2GB
+  - --cpu=2
+  - --trigger-http
+  - --entry-point=InternalServices
+  - --allow-unauthenticated
+  - --ingress-settings=internal-only
+  - --region=europe-southwest1
+  - --timeout=540s
+  - --set-env-vars=_M_PROJECT_ID=$PROJECT_ID,_M_FUNCTION_EXECUTION_REGION=europe-southwest1
+  env:
+  - 'PROJECT=$PROJECT_ID'
+  - 'REGION=europe-southwest1'
+  id: "deploy-service-internal-services"
+  dir: "InternalServices"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,17 @@
+# Handlers para MSQlikAppReload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

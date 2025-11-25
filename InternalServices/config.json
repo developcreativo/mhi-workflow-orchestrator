@@ -1,0 +1,6 @@
+{
+  "extractor_name": "mind",
+  "version": "1.0.0",
+  "default_start_date": "202401",
+  "default_closing_day": 15
+}

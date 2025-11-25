@@ -1,0 +1,131 @@
+{
+  "extractor_name": "businesscentral",
+  "version": "1.0.0",
+  "api_config": {
+    "base_url": "https://api.businesscentral.dynamics.com/v2.0/{tenant_id}/{environment}/api/v1.0",
+    "version": "v1.0",
+    "auth": {
+      "authority_url": "https://login.microsoftonline.com/{tenant_id}",
+      "scope": ["https://api.businesscentral.dynamics.com/.default"]
+    }
+  },
+  "default_start_date": "2022-01-01T00:00:00.000Z",
+  "datasets": {
+    "customers": {
+      "incremental": false,
+      "endpoint": "companies({companyId})/customers",
+      "description": "Customer information"
+    },
+    "vendors": {
+      "incremental": false,
+      "endpoint": "companies({companyId})/vendors",
+      "description": "Vendor/supplier information"
+    },
+    "chartOfAccounts": {
+      "incremental": false,
+      "endpoint": "companies({companyId})/accounts",
+      "description": "Chart of accounts"
+    },
+    "items": {
+      "incremental": false,
+      "endpoint": "companies({companyId})/items",
+      "description": "Items for analysis"
+    },
+    "itemCategories": {
+      "incremental": false,
+      "endpoint": "companies({companyId})/itemCategories",
+      "description": "Item categories for analysis"
+    },
+    "generalLedgerEntries": {
+      "incremental": true,
+      "endpoint": "companies({companyId})/generalLedgerEntries",
+      "description": "General ledger entries with account postings"
+    },
+    "dimensions": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/dimensions",
+      "parentfield":"id",
+      "childfield":"dimensionsValues",
+      "childendpoint": "companies({companyId})/dimensions({parentId})/dimensionValues",
+      "description": "Dimensions for financial analysis"
+    },
+    "journals": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/journals",
+      "parentfield":"id",
+      "childfield":"journalLines",
+      "childendpoint": "companies({companyId})/journals({parentId})/journalLines",
+      "description": "Journal Details for financial analysis"
+    },
+    "salesOrder": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/salesOrders",
+      "parentfield":"id",
+      "childfield":"salesOrderLines",
+      "childendpoint": "companies({companyId})/salesOrders({parentId})/salesOrderLines",
+      "description": "Sales orders"
+    },
+    "salesInvoice": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/salesInvoices",
+      "parentfield":"id",
+      "childfield":"salesInvoiceLines",
+      "childendpoint":"companies({companyId})/salesInvoices({parentId})/salesInvoiceLines",
+      "description": "Posted and draft sales invoices"
+    },
+    "salesCreditMemo": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/salesCreditMemos",
+      "parentfield":"id",
+      "childfield":"salesCreditMemoLines",
+      "childendpoint":"companies({companyId})/salesCreditMemos({parentId})/salesCreditMemoLines",
+      "description": "Posted and draft sales credit memos"
+    },
+    "salesShipment": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/salesShipments",
+      "parentfield":"id",
+      "childfield":"salesShipmentLines",
+      "childendpoint": "companies({companyId})/salesShipments({parentId})/salesShipmentLines",
+      "description": "Sales shipments"
+    },
+    "purchaseOrder": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/purchaseOrders",
+      "parentfield":"id",
+      "childfield":"purchaseOrderLines",
+      "childendpoint": "companies({companyId})/purchaseOrders({parentId})/purchaseOrderLines",
+      "description": "Purchase orders"
+    },
+    "purchaseInvoice": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/purchaseInvoices",
+      "parentfield":"id",
+      "childfield":"purchaseInvoiceLines",
+      "childendpoint": "companies({companyId})/purchaseInvoices({parentId})/purchaseInvoiceLines",
+      "description": "Posted and draft purchase invoices"
+    },
+    "purchaseCreditMemo": {
+      "incremental": true,
+      "parentchild": true,
+      "endpoint": "companies({companyId})/purchaseCreditMemos",
+      "parentfield":"id",
+      "childfield":"purchaseCreditMemoLines",
+      "childendpoint": "companies({companyId})/purchaseCreditMemos({parentId})/purchaseCreditMemoLines",
+      "description": "Posted and draft purchase credit memos"
+    }
+  },
+  "default_params": {
+    "page_size": 20000,
+    "max_retries": 3,
+    "timeout": 300
+  }
+}

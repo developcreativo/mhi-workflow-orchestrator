@@ -1,0 +1,8 @@
+{
+    "account": "{{account}}",
+    "data_source": "{{datasource}}",
+    "data_set": "{{dataset}}",
+    "incremental_strategy": "{{incrementalstrategy}}",
+    "incremental_field": "{{incrementalfield}}",
+    "incremental_value": "{{incrementalvalue}}"
+}

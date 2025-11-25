@@ -1,0 +1,7 @@
+functions-framework==3.9.2
+pyarrow==21.0.0
+gcsfs==2025.9.0
+Jinja2==3.1.2
+google-cloud-pubsub==2.31.1
+google-cloud-secret-manager==2.24.0
+pyyaml==6.0.3

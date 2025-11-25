@@ -1,0 +1,9 @@
+{
+    "account": "marugal",
+    "connection_id": "marugal_ulysescloud_solecio",
+    "data_source": "ulysescloud",
+    "data_set": "property.reservationRoomStay.creation",
+    "incremental_strategy": "incremental",
+    "incremental_field": "createdFrom",
+    "incremental_value": "2024-01-01T00:00:00.000Z"
+}

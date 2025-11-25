@@ -1,0 +1,17 @@
+{
+    "events": {
+        "_id": "string",
+        "title": "string",
+        "description": "string",
+        "start_date": "string",
+        "end_date": "string",
+        "status": "string",
+        "venue_id": "string",
+        "venue_name": "string",
+        "created_at": "string",
+        "updated_at": "string",
+        "capacity": "int64",
+        "price_min": "float64",
+        "price_max": "float64"
+    }
+}

@@ -1,0 +1,22 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  waitFor: ["-"]
+  args:
+    - functions
+    - deploy
+    - MSDataModelingEngine
+    - --runtime=python312
+    - --gen2    
+    - --region=europe-southwest1
+    - --memory=256MB
+    - --entry-point=IniciarTransformacionDatos
+    - --timeout=400s
+    - --trigger-topic=ms-data-modeling
+    - --set-env-vars=_M_PROJECT_ID=$PROJECT_ID,_M_FUNCTION_EXECUTION_REGION=europe-southwest1,_M_TRIGGER_TOPIC=ms-data-modeling-engine,_M_MS_FLOWS_CONTROLLER_TOPIC=ms-flows-controller
+  id: "deploy-ms-data-modeling"
+  dir: "MSDataModelingEngine"
+
+options:
+    logging: CLOUD_LOGGING_ONLY
+
+timeout: 240s

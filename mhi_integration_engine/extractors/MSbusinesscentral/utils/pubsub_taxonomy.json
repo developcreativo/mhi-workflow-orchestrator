@@ -1,0 +1,10 @@
+{
+    "_m_account":"XXXXX",
+    "datasets":[
+        "companies",
+        "XXXX"
+    ],
+    "start_date":"2022-01-01",
+    "end_date":null,
+    "companies":[]
+}

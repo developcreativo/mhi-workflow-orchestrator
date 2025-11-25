@@ -1,0 +1,15 @@
+# Development Dependencies
+# Add these to requirements.txt for development environment
+
+# Code Quality
+black==23.11.0
+ruff==0.1.6
+mypy==1.7.1
+
+# Testing (already in requirements.txt but listing versions)
+pytest==7.4.3
+pytest-mock==3.12.0
+pytest-cov==4.1.0
+
+# Type Stubs for Google Cloud
+types-requests==2.31.0.10

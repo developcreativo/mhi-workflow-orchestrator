@@ -1,0 +1,17 @@
+# Utilidades para MSQlikAppReload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+{
+    "account": "silken",
+    "connection_id": "silken_ulysescloud",
+    "data_source": "ulysescloud",
+    "data_set": "property.invoice",
+    "incremental_strategy": "incremental",
+    "incremental_field": "from",
+    "incremental_value": "2024-08-12T00:00:00.000Z"
+}

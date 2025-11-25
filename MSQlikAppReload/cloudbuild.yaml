@@ -1,0 +1,39 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  waitFor: ["-"]
+  args:
+    - functions
+    - deploy
+    - MSQlikAppReload
+    - --runtime=python312
+    - --gen2    
+    - --region=europe-southwest1
+    - --memory=256MB
+    - --entry-point=IniciarRecargaApp
+    - --timeout=400s
+    - --trigger-topic=ms-qlik-app-reload
+    - --set-env-vars=_M_PROJECT_ID=$PROJECT_ID,_M_FUNCTION_EXECUTION_REGION=europe-southwest1
+  id: "deploy-ms-qlik-app-reload"
+  dir: "MSQlikAppReload"
+
+- name: "gcr.io/cloud-builders/gcloud"
+  waitFor: ["-"]
+  args:
+    - functions
+    - deploy
+    - MSQlikAppReloadPolling
+    - --runtime=python312
+    - --gen2    
+    - --region=europe-southwest1
+    - --memory=256MB
+    - --entry-point=PollingEstadoRecargaQlik
+    - --timeout=400s
+    - --trigger-topic=ms-qlik-app-reload-polling
+    - --set-env-vars=_M_PROJECT_ID=$PROJECT_ID,_M_FUNCTION_EXECUTION_REGION=europe-southwest1
+  id: "deploy-ms-qlik-app-reload-polling"
+  dir: "MSQlikAppReload"
+
+options:
+    logging: CLOUD_LOGGING_ONLY
+
+timeout: 240s

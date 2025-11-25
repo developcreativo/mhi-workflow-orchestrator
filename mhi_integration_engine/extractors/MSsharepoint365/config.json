@@ -1,0 +1,10 @@
+{
+    "extractor_name":"sharepoint365",
+    "extractor_type":"apirest",
+    "api_version":"v1.0",
+    "content_type":"application/x-www-form-urlencoded",
+    "grant_type":"client_credentials",
+    "base_url":"https://graph.microsoft.com/v1.0",
+    "scope_url":"https://graph.microsoft.com/.default",
+    "token_url":"https://login.microsoftonline.com/16f8767b-2e16-44da-9619-df258ed0056c/oauth2/v2.0/token"
+}

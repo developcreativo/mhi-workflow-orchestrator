@@ -1,0 +1,28 @@
+{
+    "extractor_name":"reviewpro",
+    "extractor_type":"apirest",
+    "base_url": "https://connect.reviewpro.com/{{api_version}}",
+    "api_version":"v1",
+    "datasets":{
+        "account.lodgings":{
+            "endpoint":"/account/lodgings?productType=HOTEL&api_key={{api_key}}",
+            "is_the_hotel_list":true,
+            "paginate":false,
+            "incremental":false,
+            "property_iterable":false
+        },
+        "lodging":{
+            "endpoint":"/lodging/index/avg?rt=OVERALL&api_key={{api_key}}&pid={{pid}}",
+            "paginate":false,
+            "property_iterable":true,
+            "incremental":true,
+            "incremental_field":"fd",
+            "parameters":{
+                "fd":{
+                    "datetype":"date",
+                    "default_value":"2019-01-01"
+                }
+            }
+        }
+    }
+}

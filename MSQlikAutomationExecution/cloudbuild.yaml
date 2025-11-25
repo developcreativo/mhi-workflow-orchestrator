@@ -1,0 +1,22 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  waitFor: ["-"]
+  args:
+    - functions
+    - deploy
+    - MSQlikAutomationExecution
+    - --runtime=python312
+    - --gen2    
+    - --region=europe-southwest1
+    - --memory=256MB
+    - --entry-point=IniciarCargaVisualizacion
+    - --timeout=400s
+    - --trigger-topic=ms-qlik-automation-execution
+    - --set-env-vars=_M_PROJECT_ID=$PROJECT_ID,_M_FUNCTION_EXECUTION_REGION=europe-southwest1
+  id: "deploy-ms-qlik-automation-execution"
+  dir: "MSQlikAutomationExecution"
+
+options:
+    logging: CLOUD_LOGGING_ONLY
+
+timeout: 240s

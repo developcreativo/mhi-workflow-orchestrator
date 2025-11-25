@@ -1,0 +1,34 @@
+{
+    "MainTrans": {
+        "StateCountTrasp": "int64",
+        "Amount":"float64",
+        "TBNumTrasp": "int64",
+        "CustNo": "int64",
+        "CustStoreNo": "int64",
+        "Families":"int64",
+        "Customers":"int64",
+        "IncludedVat":"boolean",
+        "ReportType":"int64",
+        "PriceLevelNo": "int64",
+        "RefTermNo": "int64",
+        "RefTrasNo": "int64",
+        "SaleNum":"int64",
+        "TBNumOrg":"int64",
+        "StateContOrg":"int64",
+        "TicdevNum":"int64",
+        "VoidCount":"int64",
+        "CustomerEmail":"string"
+    },
+    "ItemPos":{
+        "MotivChaPrice":"string",
+        "UseEanBarCodeTermNo":"string",
+        "PrintOrderGroupNo":"string",
+        "UseEanBarCodeTransNo":"string",
+        "RedefinedDescription":"string",
+        "ExtraAmount":"float64",
+        "Price":"float64",
+        "Amoun":"float64",
+        "TruePrice":"float64"
+    }
+
+}

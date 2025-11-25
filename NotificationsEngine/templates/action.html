@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mind Notification — Blue Rounded</title>
+    <style>
+      /* Estilos mínimos y seguros para email */
+      body { margin:0; padding:0; background:#f3f3f3; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+      table { border-spacing:0; border-collapse:collapse; }
+      img { border:0; line-height:100%; outline:none; text-decoration:none; display:block; height:auto; }
+      .container { width:100%; background:#f3f3f3; }
+      /* La "card" blanca con ESQUINAS REDONDEADAS (tomado del estilo de system_alert) */
+      .card { width:100%; max-width:600px; margin:0 auto; background:#ffffff; border-radius:12px; overflow:hidden; }
+      .px { padding-left:24px; padding-right:24px; }
+      .py { padding-top:24px; padding-bottom:24px; }
+      .content { font-family: Helvetica, Arial, sans-serif; color:#1e1e1e; font-size:16px; line-height:1.5; text-align:left; }
+      .footer { color:#6b6b6b; font-size:12px; padding-top:16px; padding-bottom:24px; }
+      /* Encabezado AZUL + logo (inspirado en information_plain) */
+      .header { background:#151551; text-align:center; }
+      .logo { max-width:160px; height:auto; margin:20px auto 8px auto; }
+      /* Banda de alerta opcional (puedes borrar este bloque si no quieres alerta) */
+      .alert { background:#FF9F00; color:#ffffff; text-align:center; font-weight:500; font-size:16px; }
+      .btn { display:inline-block; padding:12px 20px; text-decoration:none; border-radius:8px; background:#151551; color:#ffffff; font-weight:600; }
+      @media (max-width: 600px) { .px { padding-left:16px!important; padding-right:16px!important; } }
+    </style>
+  </head>
+  <body style="text-align:left;">
+    <!-- Preheader (texto previo, oculto en el cuerpo) -->
+    <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">{{preheader}}</div>
+
+    <table role="presentation" class="container" width="100%" bgcolor="#f3f3f3">
+      <tr>
+        <td align="center" style="text-align:left;">
+          <!-- CARD con bordes redondeados -->
+          <table role="presentation" class="card" width="100%">
+            <!-- Encabezado azul con logo Mind -->
+            <tr>
+              <td class="header">
+                <a href="https://www.wearemind.io" target="_blank" style="text-decoration:none;">
+                  <img class="logo" src="https://files.wearemind.io/Logos_mind/mind-logo/mind-logo_blanco/mind-logo_blanco.png" alt="Mind" width="80">
+                </a>
+              </td>
+            </tr>
+
+            <!-- (OPCIONAL) Banda de alerta -->
+            <!--
+              Para activar la alerta, deja el siguiente <tr>. Para desactivarla, bórralo.
+              Puedes reemplazar {{alert_text}} con tu mensaje de alerta.
+            
+            <tr>
+              <td class="alert px py">
+                {{alert_text}}
+              </td>
+            </tr>
+            -->
+            <!-- Contenido principal -->
+            <tr>
+              <td class="px py content" style="text-align:left;">
+                <h1 style="margin:0 0 8px 0; font-size:22px; line-height:1.2; color:#151551;">{{title}}</h1>
+                <p style="margin:0 0 12px 0;">{{text}}</p>
+
+                <!-- CTA opcional -->
+                <!-- Borra este bloque si no lo necesitas -->
+                <p style="margin:16px 0 0 0;">
+                  <a href="{{cta_url}}" class="btn" target="_blank">{{cta_label}}</a>
+                </p>
+              </td>
+            </tr>
+
+            <!-- Pie con copyright (azul oscuro/ligero contraste sobre blanco) -->
+            <tr>
+              <td class="px footer content" style="text-align:left;">
+                <p style="margin:0;">© 2025 Mind — <a href="https://www.wearemind.io" style="color:#1e1e1e;">wearemind.io</a></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Prevención ajuste de fuente en iOS Gmail -->
+    <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+# Functions Framework para Cloud Functions
+functions-framework==3.5.0
+
+# Google Cloud Libraries
+google-cloud-pubsub==2.18.4
+google-cloud-storage==2.10.0
+google-cloud-secret-manager==2.16.4
+
+# HTTP requests para APIs externas y Cloud Functions
+requests==2.31.0
+
+# JSON y utilidades
+flask==2.3.3
+
+# Logging y utilidades
+python-dateutil==2.8.2
+
+# Para manejo de configuraciones
+pyyaml==6.0.1
+
+# Testing (opcional para desarrollo)
+pytest==7.4.3
+pytest-mock==3.12.0
+
+# Tareas asíncronas (Celery con broker Google Pub/Sub)
+celery[gcpubsub]==5.5.3
+google-cloud-monitoring==2.16.0
+pydantic==2.5.2
+pydantic-settings==2.1.0

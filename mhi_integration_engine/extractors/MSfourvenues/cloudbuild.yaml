@@ -1,0 +1,58 @@
+steps:
+# 1️⃣ Detectar entorno (según BRANCH_NAME) y definir variables de entorno
+- name: "gcr.io/cloud-builders/gcloud"
+  id: "set-env-vars"
+  entrypoint: "bash"
+  args:
+    - "-c"
+    - |
+      echo "Detectando entorno a partir de PROJECT_ID=$PROJECT_ID..."
+      case "$BRANCH_NAME" in
+        *dev*)
+          export var_BUCKET_DATA="ocean_data"
+          export var_BUCKET_LASTEST_EXECUTION="lastest_incremental_data"
+          export var_ENV_ACRONYM="dev"
+          export var_VPC_CONNECTOR="ocean-onpremise-connector" 
+          ;;
+        *qa*)
+          export var_BUCKET_DATA="qa_ocean_data"
+          export var_BUCKET_LASTEST_EXECUTION="qa_lastest_incremental_data"
+          export var_ENV_ACRONYM="qa"
+          export var_VPC_CONNECTOR="qa-ocean-onpremise-connector"
+          ;;
+        *prod*)
+          export var_BUCKET_DATA="prod_ocean_data"
+          export var_BUCKET_LASTEST_EXECUTION="prod_lastest_incremental_data"
+          export var_ENV_ACRONYM="prod"
+          export var_VPC_CONNECTOR="prod-ocean-onpremise-connector"
+          ;;
+      esac
+      export var_REGION="europe-southwest1"
+      env | grep "^var_" > /workspace/env_vars
+      echo "Variables detectadas:"
+      cat /workspace/env_vars
+
+# 2️⃣ Cargar las variables y desplegar la función
+- name: "gcr.io/cloud-builders/gcloud"
+  id: "deploy-ms-extractor-fourvenues"
+  entrypoint: "bash"
+  args:
+    - "-c"
+    - |
+      source /workspace/env_vars &&
+      echo "Desplegando MSExtractorFourvenues en entorno $_M_ENV_ACRONYM"
+      gcloud functions deploy MSExtractorFourvenues \
+        --runtime=python312 \
+        --gen2 \
+        --region=$var_REGION \
+        --memory=4096MB \
+        --cpu=2 \
+        --entry-point=IniciarExtraccion \
+        --timeout=540s \
+        --ingress-settings=internal-only \
+        --trigger-topic=ms-extractor-fourvenues \
+        --set-env-vars=_M_PROJECT_ID=$PROJECT_ID,_M_FUNCTION_EXECUTION_REGION=$var_REGION,_M_ENV_ACRONYM=$var_ENV_ACRONYM,_M_BUCKET_DATA=$var_BUCKET_DATA,_M_BUCKET_LASTEST_EXECUTION=$var_BUCKET_LASTEST_EXECUTION
+  dir: "extractors/MSfourvenues"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

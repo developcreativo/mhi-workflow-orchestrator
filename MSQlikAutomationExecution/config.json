@@ -1,0 +1,7 @@
+{
+    "utilName": "MSDataVisualizationLoad",
+    "Description": "Esta utilidad llama a una automatización de Qlik Cloud",
+    "type": "apirest",
+    "base_url": "https://{{tenant_name}}.{{deployment_location}}.qlikcloud.com/api/v1/automations/{{automation_id}}/runs",
+    "base_url_retrieve": "https://{{tenant_name}}.{{deployment_location}}.qlikcloud.com/api/v1/automations/{{automation_id}}/runs/{{run_id}}"
+}

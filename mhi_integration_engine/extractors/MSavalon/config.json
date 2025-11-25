@@ -1,0 +1,63 @@
+{
+    "extractor_name":"avalon",
+    "extractor_type":"database",
+    "deployment_type":"onpremise",
+    "database_type":"sqlserver",
+    "datasets":{
+        "RECReservas":{
+            "table_name":"RECReservas",
+            "is_the_hotel_list":true,
+            "paginate":false,
+            "incremental":false,
+            "property_iterable":false,
+            "data_attribute":"list"
+        },
+        "RECCardex":{
+            "table_name":"RECCardex",
+            "is_the_hotel_list":true,
+            "paginate":false,
+            "incremental":false,
+            "property_iterable":false,
+            "data_attribute":"list"
+        },
+        "property.propertyManagement.revenueSegment":{
+            "endpoint":"/property/{{propertyId}}/propertyManagement/revenueSegment?limit=5000",
+            "paginate":false,
+            "property_iterable":true,
+            "incremental":true,
+            "incremental_field": "date",
+            "parameters":{
+                "date":{
+                    "datatype":"date",
+                    "default_value":"2022-01-01"
+                },
+                "revenuePriceModelTypeId":{
+                    "datatype":"list",
+                    "default_value":[1,2,3]
+                }
+            }
+        }
+
+    },
+    "master_datasets":[
+        "property.user",
+        "company.summary",
+        "company.relationships",
+        "mergeAudit",
+        "productGroup.productSubGroup",
+        "property.room",
+        "property.budget.monthly"
+    ],
+    "otros  ":[
+        "property.reservationRoomStay.modification"
+    ],
+    "transactional_datasets":[
+        "property.reservationRoomStay.creation",
+        "property.reservationRoomStay.modification",
+        "property.propertyManagement.accountReceivableAging",
+        "property.propertyManagement.depositLedger",
+        "property.propertyManagement.guestLedger",
+        "property.revenue.detail",
+        "property.invoice"
+    ]
+}

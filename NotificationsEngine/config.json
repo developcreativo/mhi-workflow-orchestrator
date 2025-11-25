@@ -1,0 +1,9 @@
+{
+    "service_name":"NotificationsEngine",
+    "log_name":"notifications_engine",
+    "endpoint":"https://api.eu.mailgun.net/v3/wearemind.io/messages",
+    "secret_id":"INTERNAL_MAILGUN_APIKEY",
+    "default_from":"Mind Ocean <no-reply@wearemind.io>",
+    "system_admin_email":"ocean.admin@wearemind.io",
+    "customer_success_email":"customer.success@wearemind.io"
+}

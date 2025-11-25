@@ -1,0 +1,107 @@
+{
+  "extractor_name": "madisa",
+  "version": "1.0.0",
+  "bbdd_config": {
+    "version": "v2.0"
+  },
+  "default_start_date": "2022-01-01",
+  "datasets": {
+    "MadiCust": {
+      "incremental": false,
+      "table": "MadiCust",
+      "description": "Juego de Datos que contiene clientes"
+    },
+    "Company": {
+      "incremental": false,
+      "table": "Company",
+      "description": "Juego de Datos que contiene Sociedades"
+    },
+    "Store": {
+      "incremental": false,
+      "table": "Store",
+      "description": "Juego de Datos que contiene datos de Puntos de Venta o locales"
+    },    
+    "Terminal": {
+      "incremental": false,
+      "table": "Terminal",
+      "description": "Juego de Datos que contiene datos de cajas"
+    },    
+    "ProfitCenter": {
+      "incremental": false,
+      "table": "ProfitCenter",
+      "description": "Juego de Datos que contiene la información de cajas"
+    },    
+    "Operator": {
+      "incremental": false,
+      "table": "Operator",
+      "description": "Juego de Datos que contiene datos de camareros y otros operadores de un local"
+    },   
+    "Profile": {
+      "incremental": false,
+      "table": "Profile",
+      "description": "Juego de Datos que contiene el perfil de los operadores de un local"
+    },   
+    "Article": {
+      "incremental": false,
+      "table": "Article",
+      "description": "Juego de Datos que contiene datos de articulos vendibles"
+    },
+    "Department": {
+      "incremental": false,
+      "table": "Department",
+      "description": "Juego de Datos que contiene departamentos de ventas"
+    },
+    "Family": {
+      "incremental": false,
+      "table": "Family",
+      "description": "Juego de Datos que contiene familia de articulos"
+    },
+    "FamilyGroup": {
+      "incremental": false,
+      "table": "FamilyGroup",
+      "description": "Juego de Datos que contiene grupo de familia de articulos"
+    },
+    "MainTrans": {
+      "incremental": true,
+      "table": "MainTrans",
+      "incremental_field": "NumAccountDate",
+      "description": "Juego de Datos que contiene la cabecera del ticket"
+    },
+    "ItemPos": {
+      "incremental": true,
+      "table": "ItemPos",
+      "incremental_field": "NumAccountDate",
+      "description": "Juego de Datos que contiene las lineas de articulos del ticket"
+    },
+     "ArtTurnTerm": {
+      "incremental": false,
+      "table": "ArtTurnTerm",
+      "description": "Juego de Datos que contiene una agregación de articulos"
+    },
+    "VatPos": {
+      "incremental": false,
+      "table": "VatPos",
+      "description": "Juego de Datos que contiene la cabecera del ticket"
+    },
+    "DiscountPos": {
+      "incremental": false,
+      "table": "DiscountPos",
+      "description": "Juego de Datos que contiene las lineas de descuento del ticket"
+    },
+    "PayPos": {
+      "incremental": false,
+      "table": "PayPos",
+      "description": "Juego de Datos que contiene los pagos del ticket"
+    },
+    "CardPos": {
+      "incremental": false,
+      "table": "CardPos",
+      "description": "Juego de Datos que contiene los pagos con tarjeta del ticket"
+    }
+  },
+  "default_params": {
+    "page_size": 1000,
+    "max_retries": 3,
+    "timeout": 300
+  }
+}

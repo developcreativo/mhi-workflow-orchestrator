@@ -1,0 +1,17 @@
+# Workers para MSQlikAppReload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

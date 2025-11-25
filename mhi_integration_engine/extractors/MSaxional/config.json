@@ -1,0 +1,41 @@
+{
+  "extractor_name":"axional",
+  "version": "1.0.0",
+  "default_start_date": "2022-01-01",
+  "api_version":"v0",
+  "datasets": {
+    "Empresas": {
+        "endpoint": "EmpresasGet",
+        "requires_empcode": false,
+        "description": "Catálogo de empresas"
+    },
+    "Proyectos": {
+        "endpoint": "ProyectosGet",
+        "requires_empcode": false,
+        "description": "Catálogo de proyectos"
+      },
+    "Secciones": {
+        "endpoint": "SeccionesGet",
+        "requires_empcode": false,
+        "description": "Catálogo de secciones"
+    },
+    "CuentasContables": {
+        "endpoint": "CuentasGet",
+        "pages_endpoint": "CuentasGetPages",
+        "requires_empcode": false,
+        "description": "Datos de cuentas contables"
+      },
+    "ApuntesContables": {
+        "endpoint": "ApuntesContablesGet",
+        "pages_endpoint": "ApuntesContablesGetPages",
+        "requires_empcode": true,
+        "description": "Apuntes contables detallados"
+      }
+    },
+    "default_params":{
+      "page_size":20000,
+      "max_retries":3,
+      "timeout":300,
+      "daily_ledger_year_ago_refresh_threshold_date":"31-08"
+    }
+}

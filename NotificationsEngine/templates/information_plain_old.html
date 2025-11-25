@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mind Notification</title>
+    <style>
+      /* Estilos muy mínimos y seguros para email */
+      body { margin:0; padding:0; background:#f3f3f3; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+      table { border-spacing:0; border-collapse:collapse; }
+      img { border:0; line-height:100%; outline:none; text-decoration:none; display:block; height:auto; }
+      .container { width:100%; background:#f3f3f3; }
+      .wrapper { width:100%; max-width:600px; margin:0 auto; background:#ffffff; }
+      .px { padding-left:24px; padding-right:24px; }
+      .py { padding-top:24px; padding-bottom:24px; }
+      .header { padding-top:20px; padding-bottom:8px; }
+      .logo { max-width:160px; height:auto; }
+      .content { font-family: Helvetica, Arial, sans-serif; color:#1e1e1e; font-size:16px; line-height:1.5; text-align:left; }
+      .footer { color:#6b6b6b; font-size:12px; padding-top:24px; padding-bottom:24px; }
+      @media (max-width: 600px) { .px { padding-left:16px!important; padding-right:16px!important; } }
+    </style>
+  </head>
+  <body style="text-align:left;">
+    <!-- Preheader (texto previo, oculto en el cuerpo) -->
+    <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">{{preheader}}</div>
+
+    <table role="presentation" class="container" width="100%" bgcolor="#f3f3f3">
+      <tr>
+        <td align="center" style="text-align:left;">
+          <table role="presentation" class="wrapper" width="100%" bgcolor="#151551">
+            <!-- Header con logo Mind -->
+            <tr bgcolor="#151551">
+              <td class="header px" style="text-align:center;">
+                <a href="https://www.wearemind.io" target="_blank" style="text-decoration:none; text-align: center;">
+                  <!-- Reemplaza el src por la URL oficial del logo si fuera necesario -->
+                  <img class="logo" src="https://files.wearemind.io/Logos_mind/mind-logo/mind-logo_blanco/mind-logo_blanco.png" alt="Mind" width="120">
+                </a>
+              </td>
+            </tr>
+
+            <!-- Contenido principal: solo texto alineado a la izquierda -->
+            <tr>
+              <td class="px py content" style="text-align:left;">
+                <!-- Cuerpo del mensaje -->
+                <p style="margin:0 0 12px 0;">{{text}}</p>
+
+              </td>
+            </tr>
+
+            <!-- Pie simple opcional -->
+            <tr>
+              <td class="px footer content" style="text-align:left;">
+                <p style="margin:0;">© 2025 Mind — <a href="https://www.wearemind.io" style="color:#1e1e1e;">wearemind.io</a></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Prevención ajuste de fuente en iOS Gmail -->
+    <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
+  </body>
+</html>

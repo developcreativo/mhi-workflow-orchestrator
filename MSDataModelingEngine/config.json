@@ -1,0 +1,9 @@
+{
+    "utilName": "MSDataModeling",
+    "Description": "Esta utilidad llama a un proceso de DBT para ejecutar una transformación",
+    "type": "apirest",
+    "base_url": "https://ub031.us1.dbt.com/api/v2/accounts/{{account_id}}/jobs/{{job_id}}/run",
+    "base_url_retrieve": "https://ub031.us1.dbt.com/api/v2/accounts/{{account_id}}/jobs/{{id}}",
+    "secret_name": "INTERNAL_DBT_TOKEN",
+    "secre_token_key": "dbtc__S1hPo4iXXkqECK7JnmNLqKDWIwQxjaf6MUH9pCVbD6lW_aR3E"
+}

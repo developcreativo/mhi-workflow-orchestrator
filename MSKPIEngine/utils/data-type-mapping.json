@@ -1,0 +1,22 @@
+{
+  "kpiengine": {
+    "idIndicador": "string",
+    "idFechaContable": "int64",
+    "CodigoHotel": "string",
+    "idCuentaContable": "string",
+    "Dimension2": "string",
+    "Dimension3": "string",
+    "Dimension4": "string",
+    "Dimension5": "string",
+    "Dimension6": "string",
+    "Dimension7": "string",
+    "Dimension8": "string",
+    "Dimension9": "string",
+    "ImporteBalance": "float64",
+    "Epigrafe": "string",
+    "DescripcionEpigrafe": "string",
+    "OrdenEpigrafe": "int64",
+    "Nivel": "int64",
+    "CodigoReporte": "string"
+  }
+}
